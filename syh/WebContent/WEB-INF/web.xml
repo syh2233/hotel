@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>syh</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>AddRoomServlet</servlet-name>
+		<servlet-class>syh.AddRoomServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddRoomServlet</servlet-name>
+		<url-pattern>/addRoom</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>RoomListServlet</servlet-name>
+		<servlet-class>syh.RoomListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoomListServlet</servlet-name>
+		<url-pattern>/roomList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EditRoomServlet</servlet-name>
+		<servlet-class>syh.EditRoomServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditRoomServlet</servlet-name>
+		<url-pattern>/editRoom</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateRoomServlet</servlet-name>
+		<servlet-class>syh.UpdateRoomServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateRoomServlet</servlet-name>
+		<url-pattern>/updateRoom</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DeleteRoomServlet</servlet-name>
+		<servlet-class>syh.DeleteRoomServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteRoomServlet</servlet-name>
+		<url-pattern>/deleteRoom</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddBranchServlet</servlet-name>
+		<servlet-class>syh.AddBranchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddBranchServlet</servlet-name>
+		<url-pattern>/addBranch</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BranchListServlet</servlet-name>
+		<servlet-class>syh.BranchListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BranchListServlet</servlet-name>
+		<url-pattern>/branchList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateBranchServlet</servlet-name>
+		<servlet-class>syh.UpdateBranchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateBranchServlet</servlet-name>
+		<url-pattern>/updateBranch</url-pattern>
+	</servlet-mapping>
+	<servlet>
+    <servlet-name>DeleteBranchServlet</servlet-name>
+    <servlet-class>syh.DeleteBranchServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DeleteBranchServlet</servlet-name>
+    <url-pattern>/deleteBranch</url-pattern>
+</servlet-mapping>
+<servlet>
+    <servlet-name>EditBranchServlet</servlet-name>
+    <servlet-class>syh.EditBranchServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>EditBranchServlet</servlet-name>
+    <url-pattern>/editBranch</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ShowHotelServlet</servlet-name>
+    <servlet-class>syh.ShowHotelServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ShowHotelServlet</servlet-name>
+    <url-pattern>/ShowHotel</url-pattern>
+</servlet-mapping>
+</web-app>
