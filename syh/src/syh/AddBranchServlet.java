@@ -4,7 +4,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
 
+@MultipartConfig
 public class AddBranchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,14 +25,27 @@ public class AddBranchServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
-            String branchName = request.getParameter("branchName");
-            String branchAddress = request.getParameter("branchAddress");
-            String branchPhone = request.getParameter("branchPhone");
-            String sql = "INSERT INTO tbl_hotels (hotel_name, hotel_addr, hotel_phone) VALUES (?, ?, ?)";
+            String branchName = request.getParameter("hotelName");
+            System.out.println("hotelName=" + branchName);
+            String branchAddress = request.getParameter("hotelAddress");
+            String branchPhone = request.getParameter("hotelPhone");
+            Part hotelPicPart = request.getPart("hotelPic");
+            byte[] hotelPicBytes = null;
+            if (hotelPicPart != null && hotelPicPart.getSize() > 0) {
+                java.io.InputStream is = hotelPicPart.getInputStream();
+                hotelPicBytes = is.readAllBytes();
+                is.close();
+            }
+            String sql = "INSERT INTO tbl_hotels (hotel_name, hotel_addr, hotel_phone, hotel_pic) VALUES (?, ?, ?, ?)";
             pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, branchName);
             pstmt.setString(2, branchAddress);
             pstmt.setString(3, branchPhone);
+            if (hotelPicBytes != null) {
+                pstmt.setBytes(4, hotelPicBytes);
+            } else {
+                pstmt.setNull(4, java.sql.Types.BLOB);
+            }
             pstmt.executeUpdate();
             response.sendRedirect("branchList?addSuccess=true");
         } catch (Exception e) {
